@@ -1,0 +1,167 @@
+ABSTRACTION:
+
+Hello.java file:
+
+package org.studeasy;
+
+import org.studeasy.person.NonVegan;
+import org.studeasy.person.Person;
+import org.studeasy.person.Vegan;
+
+public class Hello {
+
+	public static void main(String[] args) {
+		Person john = new Vegan();
+		john.speak();
+		john.eat();
+		System.out.println("************");
+		Person mia = new NonVegan();
+		mia.speak();
+		mia.eat();
+		
+
+	}
+
+}
+
+***************************************************************************************
+
+NonVegan.java file:
+
+package org.studeasy.person;
+
+public class NonVegan extends Person{
+
+	@Override
+	public void eat() {
+		System.out.println("Eats non vegan food");
+		
+	}
+
+}
+
+****************************************************************************************
+
+Person.java file:
+
+package org.studeasy.person;
+
+public abstract class Person {
+	
+	public void speak(){
+		System.out.println("Shares his/her thoughts.");
+	}
+	
+	public abstract void eat();
+
+}
+
+*****************************************************************************************
+
+Vegan.java file:
+
+package org.studeasy.person;
+
+public class Vegan extends Person{
+
+	@Override
+	public void eat() {
+		System.out.println("Eats vegan food");
+		
+	}
+
+}
+
+******************************************************************************************
+
+INTERFACE:
+
+Hello.java file:
+
+package org.studyeasy;
+
+import org.studyeasy.phone.OnePlus5;
+import org.studyeasy.phone.Phone;
+
+public class Hello {
+
+	public static void main(String[] args) {
+		Phone phone = new OnePlus5();
+		
+		System.out.println("Processor: "+phone.processor());
+		System.out.println("Space in GB: "+phone.spaceInGB());
+		
+	}
+
+}
+
+********************************************************************************************
+Iphone8.java file:
+
+package org.studyeasy.phone;
+
+public class Iphone8 implements Phone{
+
+	@Override
+	public String processor() {
+		
+		return "A11";
+	}
+
+	@Override
+	public String OS() {
+		
+		return "IOS";
+	}
+
+	@Override
+	public int spaceInGB() {
+		
+		return 64;
+	}
+
+}
+
+**********************************************************************************
+
+OnePlus5.java file:
+
+package org.studyeasy.phone;
+
+public class OnePlus5 implements Phone{
+
+	@Override
+	public String processor() {
+		
+		return "SD835";
+	}
+
+	@Override
+	public String OS() {
+		
+		return "Android";
+	}
+
+	@Override
+	public int spaceInGB() {
+		
+		return 64;
+	}
+	
+}
+
+********************************************************************************************
+
+Phone.java file:
+
+package org.studyeasy.phone;
+
+public interface Phone {
+	String processor();
+	String OS();
+	int spaceInGB();
+
+}
+
+
+
